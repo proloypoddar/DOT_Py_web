@@ -1,0 +1,389 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Edit' if content else 'Create' }} {{ content_type|title }} | DotPy Academy{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>{{ 'Edit' if content else 'Create' }} {{ content_type|title }}</h1>
+        <a href="{{ url_for('admin_content') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Content
+        </a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" class="needs-validation" novalidate>
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        
+                        <!-- Basic Information -->
+                        <div class="mb-4">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="title" 
+                                   name="title" 
+                                   value="{{ content.title if content else '' }}" 
+                                   required>
+                            <div class="invalid-feedback">Please enter a title.</div>
+                        </div>
+
+                        {% if content_type == 'page' %}
+                        <div class="mb-4">
+                            <label for="slug" class="form-label">URL Slug</label>
+                            <input type="text" 
+                                   class="form-control" 
+                                   id="slug" 
+                                   name="slug" 
+                                   value="{{ content.slug if content else '' }}" 
+                                   pattern="[a-z0-9-]+" 
+                                   required>
+                            <div class="invalid-feedback">Please enter a valid URL slug (lowercase letters, numbers, and hyphens only).</div>
+                            <div class="form-text">This will be used in the URL: /page/your-slug</div>
+                        </div>
+                        {% endif %}
+
+                        {% if content_type == 'post' %}
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="author" class="form-label">Author</label>
+                                <input type="text" 
+                                       class="form-control" 
+                                       id="author" 
+                                       name="author" 
+                                       value="{{ content.author if content else '' }}" 
+                                       required>
+                                <div class="invalid-feedback">Please enter the author's name.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="published_at" class="form-label">Publish Date</label>
+                                <input type="datetime-local" 
+                                       class="form-control" 
+                                       id="published_at" 
+                                       name="published_at" 
+                                       value="{{ content.published_at.strftime('%Y-%m-%dT%H:%M') if content and content.published_at else '' }}">
+                                <div class="form-text">Leave empty to save as draft.</div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if content_type == 'announcement' %}
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="type" class="form-label">Type</label>
+                                <select class="form-select" id="type" name="type" required>
+                                    <option value="">Select a type</option>
+                                    <option value="info" {{ 'selected' if content and content.type == 'info' else '' }}>Information</option>
+                                    <option value="success" {{ 'selected' if content and content.type == 'success' else '' }}>Success</option>
+                                    <option value="warning" {{ 'selected' if content and content.type == 'warning' else '' }}>Warning</option>
+                                    <option value="danger" {{ 'selected' if content and content.type == 'danger' else '' }}>Important</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a type.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="priority" class="form-label">Priority</label>
+                                <select class="form-select" id="priority" name="priority" required>
+                                    <option value="low" {{ 'selected' if content and content.priority == 'low' else '' }}>Low</option>
+                                    <option value="medium" {{ 'selected' if content and content.priority == 'medium' else '' }}>Medium</option>
+                                    <option value="high" {{ 'selected' if content and content.priority == 'high' else '' }}>High</option>
+                                </select>
+                                <div class="invalid-feedback">Please select a priority level.</div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <label for="start_date" class="form-label">Start Date</label>
+                                <input type="date" 
+                                       class="form-control" 
+                                       id="start_date" 
+                                       name="start_date" 
+                                       value="{{ content.start_date.strftime('%Y-%m-%d') if content and content.start_date else '' }}" 
+                                       required>
+                                <div class="invalid-feedback">Please select a start date.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="end_date" class="form-label">End Date (Optional)</label>
+                                <input type="date" 
+                                       class="form-control" 
+                                       id="end_date" 
+                                       name="end_date" 
+                                       value="{{ content.end_date.strftime('%Y-%m-%d') if content and content.end_date else '' }}">
+                                <div class="form-text">Leave empty for ongoing announcements.</div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <!-- Content -->
+                        <div class="mb-4">
+                            <label for="content" class="form-label">Content</label>
+                            <textarea class="form-control" 
+                                      id="content" 
+                                      name="content" 
+                                      rows="15" 
+                                      required>{{ content.content if content else '' }}</textarea>
+                            <div class="invalid-feedback">Please enter the content.</div>
+                            <div class="form-text">
+                                {% if content_type == 'page' or content_type == 'post' %}
+                                You can use HTML and Markdown for formatting.
+                                {% else %}
+                                Keep it brief and clear. HTML is not allowed for announcements.
+                                {% endif %}
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> {{ 'Update' if content else 'Create' }} {{ content_type|title }}
+                            </button>
+                            {% if content_type == 'post' %}
+                            <button type="submit" name="action" value="preview" class="btn btn-outline-secondary">
+                                <i class="fas fa-eye"></i> Preview
+                            </button>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-lg-4">
+            <!-- Status Card -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Status</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input type="checkbox" 
+                                   class="form-check-input" 
+                                   id="is_active" 
+                                   name="is_active" 
+                                   {{ 'checked' if content and content.is_active else '' }}>
+                            <label class="form-check-label" for="is_active">
+                                {{ 'Published' if content_type == 'post' else 'Active' }}
+                            </label>
+                        </div>
+                        <div class="form-text">
+                            {% if content_type == 'post' %}
+                            Published posts will be visible to all visitors.
+                            {% else %}
+                            Active content will be visible on the website.
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% if content %}
+                    <div class="mb-3">
+                        <label class="form-label">Last Updated</label>
+                        <p class="mb-0">{{ content.updated_at.strftime('%Y-%m-%d %H:%M') }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- SEO Card (for pages and posts) -->
+            {% if content_type in ['page', 'post'] %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">SEO Settings</h5>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="meta_description" class="form-label">Meta Description</label>
+                        <textarea class="form-control" 
+                                  id="meta_description" 
+                                  name="meta_description" 
+                                  rows="3">{{ content.meta_description if content else '' }}</textarea>
+                        <div class="form-text">Brief description for search engines (150-160 characters).</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="meta_keywords" class="form-label">Meta Keywords</label>
+                        <input type="text" 
+                               class="form-control" 
+                               id="meta_keywords" 
+                               name="meta_keywords" 
+                               value="{{ content.meta_keywords if content else '' }}">
+                        <div class="form-text">Comma-separated keywords for search engines.</div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- Featured Image (for posts) -->
+            {% if content_type == 'post' %}
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">Featured Image</h5>
+                </div>
+                <div class="card-body">
+                    {% if content and content.featured_image %}
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename=content.featured_image) }}" 
+                             alt="Featured Image" 
+                             class="img-fluid rounded mb-2">
+                    </div>
+                    {% endif %}
+                    <div class="mb-3">
+                        <input type="file" 
+                               class="form-control" 
+                               id="featured_image" 
+                               name="featured_image" 
+                               accept="image/*"
+                               {{ 'required' if not content else '' }}>
+                        <div class="invalid-feedback">Please select a featured image.</div>
+                        <div class="form-text">Recommended size: 1200x630 pixels.</div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<!-- Admin Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+    <div class="container-fluid">
+        <span class="navbar-brand">Admin Panel</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_dashboard') }}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_courses') }}">
+                        <i class="fas fa-book"></i> Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_gallery') }}">
+                        <i class="fas fa-images"></i> Gallery
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('admin_content') }}">
+                        <i class="fas fa-file-alt"></i> Content
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_enrollments') }}">
+                        <i class="fas fa-users"></i> Enrollments
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .navbar-dark.bg-dark {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-dark .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-dark .nav-link i {
+        margin-right: 0.5rem;
+    }
+    .form-check-input:checked {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+
+// Auto-generate slug from title (for pages)
+{% if content_type == 'page' %}
+document.getElementById('title').addEventListener('input', function(e) {
+    const slug = e.target.value
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    document.getElementById('slug').value = slug;
+});
+{% endif %}
+
+// Image preview (for posts)
+{% if content_type == 'post' %}
+document.getElementById('featured_image').addEventListener('change', function(e) {
+    const file = e.target.files[0];
+    if (file) {
+        // Check file size (5MB limit)
+        if (file.size > 5 * 1024 * 1024) {
+            alert('File size exceeds 5MB limit');
+            e.target.value = '';
+            return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.createElement('img');
+            preview.src = e.target.result;
+            preview.className = 'img-fluid rounded mb-2';
+            const container = document.querySelector('.card-body');
+            const existingPreview = container.querySelector('img');
+            if (existingPreview) {
+                container.removeChild(existingPreview);
+            }
+            container.insertBefore(preview, container.firstChild);
+        }
+        reader.readAsDataURL(file);
+    }
+});
+{% endif %}
+
+// Date validation (for announcements)
+{% if content_type == 'announcement' %}
+document.getElementById('end_date').addEventListener('change', function(e) {
+    const startDate = new Date(document.getElementById('start_date').value);
+    const endDate = new Date(e.target.value);
+    if (endDate < startDate) {
+        alert('End date cannot be earlier than start date');
+        e.target.value = '';
+    }
+});
+{% endif %}
+</script>
+{% endblock %} 

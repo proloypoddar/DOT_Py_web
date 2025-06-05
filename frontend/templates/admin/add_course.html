@@ -1,0 +1,102 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Add New Course - Admin{% endblock %}
+
+{% block admin_content %}
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Add New Course</h1>
+        <a href="{{ url_for('admin_courses') }}" class="btn btn-secondary btn-sm">
+            <i class="fas fa-arrow-left"></i> Back to Courses
+        </a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Course Details</h6>
+        </div>
+        <div class="card-body">
+            <form method="POST" action="{{ url_for('admin_add_course') }}" enctype="multipart/form-data">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="title" class="form-label">Course Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="level" class="form-label">Level</label>
+                        <select class="form-select" id="level" name="level" required>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="short_description" class="form-label">Short Description</label>
+                    <textarea class="form-control" id="short_description" name="short_description" rows="3" required></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label for="long_description" class="form-label">Long Description</label>
+                    <textarea class="form-control" id="long_description" name="long_description" rows="6"></textarea>
+                </div>
+
+                <div class="row mb-3">
+                     <div class="col-md-6">
+                        <label for="price" class="form-label">Price ($)</label>
+                        <input type="number" class="form-control" id="price" name="price" step="0.01" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="duration" class="form-label">Duration</label>
+                        <input type="text" class="form-control" id="duration" name="duration" placeholder="e.g., 8 weeks, 30 hours">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Course Image</label>
+                    <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                </div>
+
+                <div class="mb-3">
+                    <label for="video_url" class="form-label">Course Video URL</label>
+                    <input type="url" class="form-control" id="video_url" name="video_url" placeholder="e.g., https://www.youtube.com/watch?v=...">
+                </div>
+
+                 <div class="mb-3">
+                    <label for="syllabus" class="form-label">Syllabus (Enter each point on a new line)</label>
+                    <textarea class="form-control" id="syllabus" name="syllabus" rows="4"></textarea>
+                </div>
+
+                 <div class="mb-3">
+                    <label for="teacher_id" class="form-label">Teacher (Optional - Enter Teacher ID)</label>
+                    <input type="text" class="form-control" id="teacher_id" name="teacher_id">
+                     {# TODO: Implement a dropdown/select for teachers later #}
+                </div>
+
+                 <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="status" required>
+                        <option value="draft">Draft</option>
+                        <option value="active">Active</option>
+                        <option value="archived">Archived</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Add Course</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %} 

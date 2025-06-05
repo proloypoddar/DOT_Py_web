@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block title %}{% block page_title %}{% endblock %} - Admin Dashboard{% endblock %}
+
+{% block content %}
+<!-- Admin Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('admin_dashboard') }}">Admin Panel</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'admin_dashboard' %}active{% endif %}" href="{{ url_for('admin_dashboard') }}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'admin_courses' %}active{% endif %}" href="{{ url_for('admin_courses') }}">
+                        <i class="fas fa-book"></i> Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'admin_content' %}active{% endif %}" href="{{ url_for('admin_content') }}">
+                        <i class="fas fa-file-alt"></i> Content
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'admin_enrollments' %}active{% endif %}" href="{{ url_for('admin_enrollments') }}">
+                        <i class="fas fa-users"></i> Enrollments
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.endpoint == 'admin_contacts' %}active{% endif %}" href="{{ url_for('admin_contacts') }}">
+                        <i class="fas fa-envelope"></i> Contacts
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<main class="py-4">
+    {% block admin_content %}{% endblock %}
+</main>
+{% endblock %}
+
+{% block extra_css %}
+{{ super() }}
+<style>
+    /* Admin Panel Specific Styles */
+    .navbar {
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+    }
+    .navbar-dark .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-dark .nav-link i {
+        margin-right: 0.5rem;
+    }
+    .card {
+        border: none;
+        border-radius: 0.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+    .card-header {
+        background-color: #fff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+        padding: 1rem;
+    }
+    .table th {
+        font-weight: 600;
+        color: #2c3e50;
+    }
+    .badge {
+        font-weight: 500;
+        padding: 0.5em 0.75em;
+    }
+    .btn {
+        font-weight: 500;
+    }
+    /* Ensure content doesn't get hidden behind navbar */
+    main {
+        margin-top: 1rem;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .navbar-collapse {
+            padding: 1rem 0;
+        }
+        .navbar-nav {
+            margin-bottom: 0.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+{{ super() }}
+<script>
+    // Add any admin-specific JavaScript here
+    document.addEventListener('DOMContentLoaded', function() {
+        // Enable Bootstrap tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
+{% endblock %} 

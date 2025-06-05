@@ -1,0 +1,309 @@
+2025-06-06 02:59:11,203 - INFO - Successfully connected to MongoDB
+2025-06-06 02:59:11,212 - WARNING -  * Debugger is active!
+2025-06-06 02:59:11,214 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:00:08,842 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:00:10,897 - INFO - Successfully connected to MongoDB
+2025-06-06 03:00:10,909 - WARNING -  * Debugger is active!
+2025-06-06 03:00:10,911 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:00:50,349 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\create_admin.py', reloading
+2025-06-06 03:00:51,845 - INFO - Successfully connected to MongoDB
+2025-06-06 03:00:51,857 - WARNING -  * Debugger is active!
+2025-06-06 03:00:51,859 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:01:06,090 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:06] "[33mGET /admin HTTP/1.1[0m" 404 -
+2025-06-06 03:01:06,166 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:01:06,167 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:06] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:01:06,189 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:01:08,900 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "GET / HTTP/1.1" 200 -
+2025-06-06 03:01:08,956 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:01:08,956 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:01:08,985 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "[35m[1mGET /static/videos/dotPY%20Academy-%20Posts.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:01:08,985 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:01:08,986 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "[36mGET /static/images/instructor.jpg HTTP/1.1[0m" 304 -
+2025-06-06 03:01:08,986 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:01:08,987 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:08] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:01:23,596 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:23] "[33mGET /admin HTTP/1.1[0m" 404 -
+2025-06-06 03:01:23,678 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:01:23,678 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:23] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:01:23,678 - INFO - 127.0.0.1 - - [06/Jun/2025 03:01:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:02:14,745 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\verify_admin.py', reloading
+2025-06-06 03:02:16,444 - INFO - Successfully connected to MongoDB
+2025-06-06 03:02:16,454 - WARNING -  * Debugger is active!
+2025-06-06 03:02:16,456 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:02:25,085 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:25] "[33mGET /admin HTTP/1.1[0m" 404 -
+2025-06-06 03:02:25,149 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:02:25,169 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:25] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:02:25,170 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:25] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:02:25,182 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:25] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:02:26,042 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:26] "[33mGET /admin HTTP/1.1[0m" 404 -
+2025-06-06 03:02:26,061 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:02:26,061 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:26] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:02:26,070 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:26] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:02:26,141 - INFO - 127.0.0.1 - - [06/Jun/2025 03:02:26] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:03:17,109 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:03:19,093 - INFO - Successfully connected to MongoDB
+2025-06-06 03:03:19,103 - WARNING -  * Debugger is active!
+2025-06-06 03:03:19,105 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:03:43,414 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:43] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-06-06 03:03:43,431 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:43] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:03:43,599 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:43] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:03:43,601 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:03:43,602 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:43] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:03:43,623 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:43] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:03:44,203 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:44] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:03:44,227 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:44] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:03:44,227 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:44] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:03:44,248 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:44] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:03:44,295 - INFO - 127.0.0.1 - - [06/Jun/2025 03:03:44] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:04:30,871 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\test_mongo_connection.py', reloading
+2025-06-06 03:04:32,876 - INFO - Successfully connected to MongoDB
+2025-06-06 03:04:32,886 - WARNING -  * Debugger is active!
+2025-06-06 03:04:32,889 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:04:51,101 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:04:52,440 - INFO - Successfully connected to MongoDB
+2025-06-06 03:04:52,451 - WARNING -  * Debugger is active!
+2025-06-06 03:04:52,453 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:04:52,596 - INFO - 127.0.0.1 - - [06/Jun/2025 03:04:52] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:04:52,728 - INFO - 127.0.0.1 - - [06/Jun/2025 03:04:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:04:52,729 - INFO - 127.0.0.1 - - [06/Jun/2025 03:04:52] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:04:52,730 - INFO - 127.0.0.1 - - [06/Jun/2025 03:04:52] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:04:52,749 - INFO - 127.0.0.1 - - [06/Jun/2025 03:04:52] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:06:03,327 - INFO - 127.0.0.1 - - [06/Jun/2025 03:06:03] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:06:03,367 - INFO - 127.0.0.1 - - [06/Jun/2025 03:06:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:06:03,376 - INFO - 127.0.0.1 - - [06/Jun/2025 03:06:03] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:06:03,377 - INFO - 127.0.0.1 - - [06/Jun/2025 03:06:03] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:06:03,404 - INFO - 127.0.0.1 - - [06/Jun/2025 03:06:03] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:08:17,798 - INFO - 127.0.0.1 - - [06/Jun/2025 03:08:17] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:08:17,857 - INFO - 127.0.0.1 - - [06/Jun/2025 03:08:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:08:17,858 - INFO - 127.0.0.1 - - [06/Jun/2025 03:08:17] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:08:17,858 - INFO - 127.0.0.1 - - [06/Jun/2025 03:08:17] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:08:17,914 - INFO - 127.0.0.1 - - [06/Jun/2025 03:08:17] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:10:27,547 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:27] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:10:27,608 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:10:27,608 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:27] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:10:27,629 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:27] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:10:27,652 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:27] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:10:40,395 - INFO - The CSRF token is missing.
+2025-06-06 03:10:40,395 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:40] "[31m[1mPOST /admin/login HTTP/1.1[0m" 400 -
+2025-06-06 03:10:40,469 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:40] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-06 03:10:50,386 - INFO - The CSRF token is missing.
+2025-06-06 03:10:50,387 - INFO - 127.0.0.1 - - [06/Jun/2025 03:10:50] "[31m[1mPOST /admin/login HTTP/1.1[0m" 400 -
+2025-06-06 03:11:07,443 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:11:09,417 - INFO - Successfully connected to MongoDB
+2025-06-06 03:11:09,428 - WARNING -  * Debugger is active!
+2025-06-06 03:11:09,430 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:11:10,460 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:11:11,934 - INFO - Successfully connected to MongoDB
+2025-06-06 03:11:11,944 - WARNING -  * Debugger is active!
+2025-06-06 03:11:11,946 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:12:15,648 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\test_db.py', reloading
+2025-06-06 03:12:17,668 - INFO - Successfully connected to MongoDB
+2025-06-06 03:12:17,677 - WARNING -  * Debugger is active!
+2025-06-06 03:12:17,680 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:13:23,129 - INFO - 127.0.0.1 - - [06/Jun/2025 03:13:23] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:13:23,201 - INFO - 127.0.0.1 - - [06/Jun/2025 03:13:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:13:23,202 - INFO - 127.0.0.1 - - [06/Jun/2025 03:13:23] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:13:23,206 - INFO - 127.0.0.1 - - [06/Jun/2025 03:13:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:13:23,242 - INFO - 127.0.0.1 - - [06/Jun/2025 03:13:23] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:13:29,738 - INFO - The CSRF token is missing.
+2025-06-06 03:13:29,738 - INFO - 127.0.0.1 - - [06/Jun/2025 03:13:29] "[31m[1mPOST /admin/login HTTP/1.1[0m" 400 -
+2025-06-06 03:13:35,512 - INFO - The CSRF token is missing.
+2025-06-06 03:13:35,512 - INFO - 127.0.0.1 - - [06/Jun/2025 03:13:35] "[31m[1mPOST /admin/login HTTP/1.1[0m" 400 -
+2025-06-06 03:14:25,598 - INFO - The CSRF token is missing.
+2025-06-06 03:14:25,598 - INFO - 127.0.0.1 - - [06/Jun/2025 03:14:25] "[31m[1mPOST /admin/login HTTP/1.1[0m" 400 -
+2025-06-06 03:15:07,437 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:15:09,578 - INFO - Successfully connected to MongoDB
+2025-06-06 03:15:09,588 - WARNING -  * Debugger is active!
+2025-06-06 03:15:09,589 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:15:21,074 - INFO - Login attempt for email: admin
+2025-06-06 03:15:21,118 - INFO - Found admin user: admin
+2025-06-06 03:15:21,195 - INFO - Successful login for: admin
+2025-06-06 03:15:21,195 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:21] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-06-06 03:15:21,423 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:21] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:15:21,549 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:21] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:15:21,549 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:21] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:15:21,550 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:15:30,115 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,116 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,617 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "GET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1" 200 -
+2025-06-06 03:15:30,620 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,621 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,623 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,624 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,645 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,649 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,649 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:30,656 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:30] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:15:36,245 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:36] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:15:36,324 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:36] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:15:36,324 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:36] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:15:36,325 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:36] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:15:42,392 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:42] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:15:42,436 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:15:42,436 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:42] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:15:42,456 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:42] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:15:42,491 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:42] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:15:50,059 - INFO - Login attempt for email: dddddd
+2025-06-06 03:15:50,102 - WARNING - Admin user not found: dddddd
+2025-06-06 03:15:50,104 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:50] "POST /admin/login HTTP/1.1" 200 -
+2025-06-06 03:15:50,156 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:15:50,157 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:50] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:15:50,177 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:50] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:15:55,719 - INFO - Login attempt for email: admin
+2025-06-06 03:15:55,762 - INFO - Found admin user: admin
+2025-06-06 03:15:55,840 - INFO - Successful login for: admin
+2025-06-06 03:15:55,841 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:55] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-06-06 03:15:56,062 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:56] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:15:56,089 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:56] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:15:56,090 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:15:56,090 - INFO - 127.0.0.1 - - [06/Jun/2025 03:15:56] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:16:03,891 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "GET / HTTP/1.1" 200 -
+2025-06-06 03:16:03,970 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:03,975 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:16:03,976 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[36mGET /static/images/instructor.jpg HTTP/1.1[0m" 304 -
+2025-06-06 03:16:03,977 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:16:03,977 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[35m[1mGET /static/videos/dotPY%20Academy-%20Posts.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:03,977 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:16:03,982 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:03,982 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[35m[1mGET /static/videos/dotPY%20Academy-%20Posts.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:03,984 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:03] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:06,310 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:06] "GET /about HTTP/1.1" 200 -
+2025-06-06 03:16:06,387 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:06] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:16:06,388 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:16:06,388 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:16:09,108 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "GET / HTTP/1.1" 200 -
+2025-06-06 03:16:09,187 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[35m[1mGET /static/videos/dotPY%20Academy-%20Posts.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:09,191 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:16:09,191 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:16:09,192 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:16:09,192 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[36mGET /static/images/instructor.jpg HTTP/1.1[0m" 304 -
+2025-06-06 03:16:09,193 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:09,197 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-09%20at%2021.18.02_16d124fc.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:16:09,198 - INFO - 127.0.0.1 - - [06/Jun/2025 03:16:09] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,527 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "GET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1" 200 -
+2025-06-06 03:17:02,531 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,533 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,536 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,536 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,552 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,560 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,571 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,573 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:02,581 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:02] "[35m[1mGET /static/videos/WhatsApp%20Video%202025-05-29%20at%2021.40.03_9e0411ee.mp4 HTTP/1.1[0m" 206 -
+2025-06-06 03:17:06,631 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:06] "[32mGET /admin HTTP/1.1[0m" 302 -
+2025-06-06 03:17:06,636 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:06] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:17:06,718 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:06] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:06,718 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:06,726 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:06] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:15,405 - INFO - Login attempt for email: admin
+2025-06-06 03:17:15,457 - INFO - Found admin user: admin
+2025-06-06 03:17:15,537 - INFO - Successful login for: admin
+2025-06-06 03:17:15,537 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:15] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-06-06 03:17:15,757 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:15] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:17:15,836 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:15] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:15,836 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:15] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:15,836 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:15] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:19,378 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:19] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:17:19,427 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:19,429 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:19] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:19,429 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:19] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:23,575 - INFO - Login attempt for email: admin
+2025-06-06 03:17:23,619 - INFO - Found admin user: admin
+2025-06-06 03:17:23,700 - WARNING - Invalid password for: admin
+2025-06-06 03:17:23,702 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:23] "POST /admin/login HTTP/1.1" 200 -
+2025-06-06 03:17:23,753 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:23] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:23,754 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:23] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:23,754 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:23] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:31,438 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:31] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:17:31,475 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:31] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:31,476 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:31] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:31,517 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:31] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:33,394 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:33] "GET /admin/login HTTP/1.1" 200 -
+2025-06-06 03:17:33,425 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:33] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:33,426 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:33] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:33,430 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:33] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:33,507 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:33] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:39,648 - INFO - Login attempt for email: admin
+2025-06-06 03:17:39,691 - INFO - Found admin user: admin
+2025-06-06 03:17:39,773 - WARNING - Invalid password for: admin
+2025-06-06 03:17:39,774 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:39] "POST /admin/login HTTP/1.1" 200 -
+2025-06-06 03:17:39,845 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:39,847 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:39] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:39,847 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:39] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:46,585 - INFO - Login attempt for email: admin
+2025-06-06 03:17:46,627 - INFO - Found admin user: admin
+2025-06-06 03:17:46,704 - WARNING - Invalid password for: admin
+2025-06-06 03:17:46,705 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:46] "POST /admin/login HTTP/1.1" 200 -
+2025-06-06 03:17:46,758 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:46,758 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:46] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:46,779 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:46] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:51,333 - INFO - Login attempt for email: admin
+2025-06-06 03:17:51,376 - INFO - Found admin user: admin
+2025-06-06 03:17:51,456 - INFO - Successful login for: admin
+2025-06-06 03:17:51,457 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:51] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-06-06 03:17:51,676 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:51] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:17:51,736 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:51] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:17:51,737 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:17:51,764 - INFO - 127.0.0.1 - - [06/Jun/2025 03:17:51] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:17:56,379 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:17:58,377 - INFO - Successfully connected to MongoDB
+2025-06-06 03:17:58,388 - WARNING -  * Debugger is active!
+2025-06-06 03:17:58,391 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:18:03,151 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:03] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:18:03,223 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:03] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:18:03,223 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:03] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:18:03,224 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:18:03,264 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:03] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:18:11,432 - INFO - Login attempt for email: admin
+2025-06-06 03:18:11,480 - INFO - Found admin user: admin
+2025-06-06 03:18:11,559 - WARNING - Invalid password for: admin
+2025-06-06 03:18:11,563 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:11] "POST /admin/login HTTP/1.1" 200 -
+2025-06-06 03:18:11,631 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:11] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:18:11,632 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:11] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:18:11,641 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:11] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:18:11,699 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:11] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:18:17,717 - INFO - Login attempt for email: admin
+2025-06-06 03:18:17,765 - INFO - Found admin user: admin
+2025-06-06 03:18:17,844 - INFO - Successful login for: admin
+2025-06-06 03:18:17,845 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:17] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-06-06 03:18:18,087 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:18] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:18:18,169 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:18] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:18:18,169 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:18] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:18:18,170 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:18] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:18:48,942 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\update_admin_password.py', reloading
+2025-06-06 03:18:50,468 - INFO - Successfully connected to MongoDB
+2025-06-06 03:18:50,479 - WARNING -  * Debugger is active!
+2025-06-06 03:18:50,481 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:18:53,637 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:53] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:18:53,728 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:18:53,729 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:53] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:18:53,742 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:53] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:18:53,764 - INFO - 127.0.0.1 - - [06/Jun/2025 03:18:53] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:21:38,338 - INFO - Login attempt for email: admin
+2025-06-06 03:21:38,385 - INFO - Found admin user: admin
+2025-06-06 03:21:38,466 - INFO - Successful login for: admin
+2025-06-06 03:21:38,468 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:38] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-06-06 03:21:38,712 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:38] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:21:38,741 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:38] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:21:38,741 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:21:38,790 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:38] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:21:38,828 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:38] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:21:41,254 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\app.py', reloading
+2025-06-06 03:21:43,249 - INFO - Successfully connected to MongoDB
+2025-06-06 03:21:43,259 - WARNING -  * Debugger is active!
+2025-06-06 03:21:43,261 - INFO -  * Debugger PIN: 135-665-928
+2025-06-06 03:21:53,106 - INFO - Login attempt for email: admin
+2025-06-06 03:21:53,148 - INFO - Found admin user: admin
+2025-06-06 03:21:53,225 - WARNING - Invalid password for: admin
+2025-06-06 03:21:53,233 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:53] "POST /admin/login HTTP/1.1" 200 -
+2025-06-06 03:21:53,297 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:21:53,298 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:53] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:21:53,309 - INFO - 127.0.0.1 - - [06/Jun/2025 03:21:53] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:22:01,878 - INFO - Login attempt for email: admin
+2025-06-06 03:22:01,919 - INFO - Found admin user: admin
+2025-06-06 03:22:01,995 - INFO - Successful login for: admin
+2025-06-06 03:22:01,996 - INFO - 127.0.0.1 - - [06/Jun/2025 03:22:01] "[32mPOST /admin/login HTTP/1.1[0m" 302 -
+2025-06-06 03:22:02,216 - INFO - 127.0.0.1 - - [06/Jun/2025 03:22:02] "GET /admin/dashboard HTTP/1.1" 200 -
+2025-06-06 03:22:02,243 - INFO - 127.0.0.1 - - [06/Jun/2025 03:22:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-06-06 03:22:02,243 - INFO - 127.0.0.1 - - [06/Jun/2025 03:22:02] "[36mGET /static/images/dotpy_logo.png HTTP/1.1[0m" 304 -
+2025-06-06 03:22:02,248 - INFO - 127.0.0.1 - - [06/Jun/2025 03:22:02] "[36mGET /static/js/main.js HTTP/1.1[0m" 304 -
+2025-06-06 03:22:41,902 - INFO -  * Detected change in 'e:\\ALL_WEB_DOT_PY\\backend\\models.py', reloading

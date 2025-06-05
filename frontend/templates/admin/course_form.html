@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+{% block title %}{{ 'Edit' if course else 'Create' }} Course | DotPy Academy{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>{{ 'Edit' if course else 'Create' }} Course</h1>
+        <a href="{{ url_for('admin_courses') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Courses
+        </a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data" class="needs-validation" novalidate>
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                
+                <div class="row g-4">
+                    <!-- Basic Information -->
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Basic Information</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Course Title</label>
+                                    <input type="text" 
+                                           class="form-control" 
+                                           id="title" 
+                                           name="title" 
+                                           value="{{ course.title if course else '' }}" 
+                                           required>
+                                    <div class="invalid-feedback">Please enter a course title.</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="short_description" class="form-label">Short Description</label>
+                                    <textarea class="form-control" 
+                                              id="short_description" 
+                                              name="short_description" 
+                                              rows="2" 
+                                              required>{{ course.short_description if course else '' }}</textarea>
+                                    <div class="invalid-feedback">Please enter a short description.</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Full Description</label>
+                                    <textarea class="form-control" 
+                                              id="description" 
+                                              name="description" 
+                                              rows="5" 
+                                              required>{{ course.description if course else '' }}</textarea>
+                                    <div class="invalid-feedback">Please enter a full description.</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="duration" class="form-label">Duration</label>
+                                            <input type="text" 
+                                                   class="form-control" 
+                                                   id="duration" 
+                                                   name="duration" 
+                                                   value="{{ course.duration if course else '' }}" 
+                                                   placeholder="e.g., 3 months" 
+                                                   required>
+                                            <div class="invalid-feedback">Please enter the course duration.</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label for="price" class="form-label">Price (₹)</label>
+                                            <input type="number" 
+                                                   class="form-control" 
+                                                   id="price" 
+                                                   name="price" 
+                                                   value="{{ course.price if course else '' }}" 
+                                                   min="0" 
+                                                   required>
+                                            <div class="invalid-feedback">Please enter a valid price.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Syllabus -->
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Course Syllabus</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label for="syllabus" class="form-label">Syllabus (HTML allowed)</label>
+                                    <textarea class="form-control" 
+                                              id="syllabus" 
+                                              name="syllabus" 
+                                              rows="10" 
+                                              required>{{ course.syllabus if course else '' }}</textarea>
+                                    <div class="invalid-feedback">Please enter the course syllabus.</div>
+                                    <div class="form-text">You can use HTML tags to format the syllabus.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <div class="col-md-4">
+                        <!-- Course Image -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Course Image</h5>
+                            </div>
+                            <div class="card-body">
+                                {% if course and course.image_url %}
+                                <div class="mb-3">
+                                    <img src="{{ url_for('static', filename=course.image_url) }}" 
+                                         alt="{{ course.title }}" 
+                                         class="img-fluid rounded mb-2">
+                                </div>
+                                {% endif %}
+                                <div class="mb-3">
+                                    <input type="file" 
+                                           class="form-control" 
+                                           id="image" 
+                                           name="image" 
+                                           accept="image/*"
+                                           {{ 'required' if not course else '' }}>
+                                    <div class="invalid-feedback">Please select a course image.</div>
+                                    <div class="form-text">Recommended size: 800x450 pixels</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course Settings -->
+                        <div class="card mt-4">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Course Settings</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <div class="form-check form-switch">
+                                        <input type="checkbox" 
+                                               class="form-check-input" 
+                                               id="is_active" 
+                                               name="is_active" 
+                                               {{ 'checked' if course and course.is_active else '' }}>
+                                        <label class="form-check-label" for="is_active">Active Course</label>
+                                    </div>
+                                    <div class="form-text">Inactive courses won't be visible to students.</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select class="form-select" id="category" name="category" required>
+                                        <option value="">Select a category</option>
+                                        <option value="python" {{ 'selected' if course and course.category == 'python' else '' }}>Python Programming</option>
+                                        <option value="robotics" {{ 'selected' if course and course.category == 'robotics' else '' }}>Robotics</option>
+                                        <option value="machine_learning" {{ 'selected' if course and course.category == 'machine_learning' else '' }}>Machine Learning</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a category.</div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="level" class="form-label">Difficulty Level</label>
+                                    <select class="form-select" id="level" name="level" required>
+                                        <option value="">Select a level</option>
+                                        <option value="beginner" {{ 'selected' if course and course.level == 'beginner' else '' }}>Beginner</option>
+                                        <option value="intermediate" {{ 'selected' if course and course.level == 'intermediate' else '' }}>Intermediate</option>
+                                        <option value="advanced" {{ 'selected' if course and course.level == 'advanced' else '' }}>Advanced</option>
+                                    </select>
+                                    <div class="invalid-feedback">Please select a difficulty level.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="card mt-4">
+                            <div class="card-body">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-save"></i> {{ 'Update' if course else 'Create' }} Course
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Admin Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+    <div class="container-fluid">
+        <span class="navbar-brand">Admin Panel</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_dashboard') }}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('admin_courses') }}">
+                        <i class="fas fa-book"></i> Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_gallery') }}">
+                        <i class="fas fa-images"></i> Gallery
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_content') }}">
+                        <i class="fas fa-file-alt"></i> Content
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_enrollments') }}">
+                        <i class="fas fa-users"></i> Enrollments
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .navbar-dark.bg-dark {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-dark .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-dark .nav-link i {
+        margin-right: 0.5rem;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+    .form-check-input:checked {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Form validation
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+            form.classList.add('was-validated')
+        }, false)
+    })
+})()
+
+// Image preview
+document.getElementById('image').addEventListener('change', function(e) {
+    if (e.target.files && e.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const preview = document.createElement('img');
+            preview.src = e.target.result;
+            preview.className = 'img-fluid rounded mb-2';
+            const container = document.querySelector('.card-body');
+            const existingPreview = container.querySelector('img');
+            if (existingPreview) {
+                container.removeChild(existingPreview);
+            }
+            container.insertBefore(preview, container.firstChild);
+        }
+        reader.readAsDataURL(e.target.files[0]);
+    }
+});
+</script>
+{% endblock %} 

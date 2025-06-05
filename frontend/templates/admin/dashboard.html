@@ -1,0 +1,249 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Admin Dashboard - DotPy Academy{% endblock %}
+
+{% block admin_content %}
+<div class="container-fluid py-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Admin Dashboard</h1>
+        <a href="{{ url_for('admin_logout') }}" class="btn btn-outline-danger btn-sm">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col me-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Courses</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ stats.courses }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('admin_courses') }}" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col me-2">
+                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Enrollments</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ stats.enrollments }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-users fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('admin_enrollments') }}" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-4 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col me-2">
+                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Contacts</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ stats.contacts }}</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-envelope fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                    <a href="{{ url_for('admin_contacts') }}" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="row">
+        <!-- Recent Enrollments -->
+        <div class="col-xl-6 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Recent Enrollments</h6>
+                    <a href="{{ url_for('admin_enrollments') }}" class="btn btn-sm btn-primary">View All</a>
+                </div>
+                <div class="card-body">
+                    {% if stats.recent_enrollments %}
+                        <div class="table-responsive">
+                            <table class="table table-hover small" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Student</th>
+                                        <th>Course</th>
+                                        <th>Contact</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for enrollment in stats.recent_enrollments %}
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <strong>{{ enrollment.student_name }}</strong>
+                                                {% if enrollment.age %}
+                                                    <br><small class="text-muted">Age: {{ enrollment.age }}</small>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <strong>{{ enrollment.course_title }}</strong>
+                                                {% if enrollment.course_duration %}
+                                                    <br><small class="text-muted">{{ enrollment.course_duration }} weeks</small>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <small><i class="fas fa-envelope me-1"></i>{{ enrollment.email }}</small>
+                                                {% if enrollment.phone %}
+                                                    <br><small><i class="fas fa-phone me-1"></i>{{ enrollment.phone }}</small>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <small>{{ enrollment.enrollment_date.strftime('%Y-%m-%d') }}</small>
+                                                <br><small class="text-muted">{{ enrollment.enrollment_date.strftime('%H:%M') }}</small>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-{{ 'success' if enrollment.status == 'approved' else 'warning' if enrollment.status == 'pending' else 'danger' }}">
+                                                {{ enrollment.status | capitalize }}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No recent enrollments</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Contacts -->
+        <div class="col-xl-6 col-lg-5">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Recent Contacts</h6>
+                    <a href="{{ url_for('admin_contacts') }}" class="btn btn-sm btn-primary">View All</a>
+                </div>
+                <div class="card-body">
+                    {% if stats.recent_contacts %}
+                        <div class="table-responsive">
+                            <table class="table table-hover small" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Contact Info</th>
+                                        <th>Message</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for contact in stats.recent_contacts %}
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <strong>{{ contact.name }}</strong>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <small><i class="fas fa-envelope me-1"></i>{{ contact.email }}</small>
+                                                {% if contact.phone %}
+                                                    <br><small><i class="fas fa-phone me-1"></i>{{ contact.phone }}</small>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">{{ contact.message | truncate(50) }}</small>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <small>{{ contact.created_at.strftime('%Y-%m-%d') }}</small>
+                                                <br><small class="text-muted">{{ contact.created_at.strftime('%H:%M') }}</small>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">No recent contacts</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+{{ super() }}
+<style>
+    .card {
+        transition: transform 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-2px);
+    }
+    .table th {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 0.85rem;
+    }
+    .table td {
+        font-size: 0.85rem;
+        vertical-align: middle;
+    }
+    .badge {
+        font-weight: 500;
+        padding: 0.5em 0.75em;
+    }
+    .btn-sm {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    .text-xs {
+        font-size: 0.7rem;
+    }
+    .border-left-primary {
+        border-left: 4px solid #4e73df !important;
+    }
+    .border-left-success {
+        border-left: 4px solid #1cc88a !important;
+    }
+    .border-left-info {
+        border-left: 4px solid #36b9cc !important;
+    }
+</style>
+{% endblock %} 

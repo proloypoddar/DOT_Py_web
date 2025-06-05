@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Book a Demo Class | DotPy Academy{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Demo Class Booking Form -->
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Book a Demo Class</h2>
+                    <div class="text-center mb-4">
+                        <p class="text-muted">Experience our teaching methodology with a free demo class. Fill out the form below to schedule your session.</p>
+                    </div>
+                    
+                    <!-- Google Forms iframe -->
+                    <div class="google-form-container" style="display: flex; justify-content: center;">
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSfNNBL0oudMJdJYNb2z95vjaTcKVRR_tUTuJ6sD7hp-FoVfEw/viewform?embedded=true" 
+                            width="100%" 
+                            height="2374" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            id="demoForm"
+                            onload="handleFormLoad()"
+                            style="min-height: 2374px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 800px;">
+                            Loading…
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <div class="mb-4">
+                    <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                </div>
+                <h4 class="modal-title mb-3" id="successModalLabel">Thank You!</h4>
+                <p class="text-muted mb-4">Your demo class request has been submitted successfully. We will contact you soon to confirm the schedule.</p>
+                <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.google-form-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    padding: 1rem 1rem 0;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.btn-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+/* Loading animation for iframe */
+.google-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.google-form-container.loaded::before {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.google-form-container::after {
+    content: 'Loading form...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #666;
+    font-size: 1.1rem;
+}
+</style>
+
+<script>
+// Handle form loading
+function handleFormLoad() {
+    const container = document.querySelector('.google-form-container');
+    container.classList.add('loaded');
+    
+    // Listen for messages from the iframe
+    window.addEventListener('message', function(event) {
+        // Check if the message is from Google Forms
+        if (event.origin === 'https://docs.google.com') {
+            try {
+                const data = JSON.parse(event.data);
+                // Check if the form was submitted
+                if (data && data.type === 'submit') {
+                    // Show success modal
+                    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    successModal.show();
+                }
+            } catch (e) {
+                console.log('Not a JSON message from Google Forms');
+            }
+        }
+    });
+}
+</script>
+{% endblock %} 

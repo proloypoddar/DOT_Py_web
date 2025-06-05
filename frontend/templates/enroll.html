@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+
+{% block title %}Enroll Now | DotPy Academy{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <!-- Enrollment Form -->
+            <div class="card shadow-sm">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-4">Enrollment Form</h2>
+                    <div class="text-center mb-4">
+                        <p class="text-muted">Please fill out the form below to enroll in our courses.</p>
+                    </div>
+                    
+                    <!-- Google Forms iframe -->
+                    <div class="google-form-container" style="display: flex; justify-content: center;">
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSdEFRBYJXQnH6Tyl79KYaavFOy1w8ZuHzL4MrdJR3_6k7Sr3g/viewform?embedded=true" 
+                            width="100%" 
+                            height="2374" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            id="enrollmentForm"
+                            onload="handleFormLoad()"
+                            style="min-height: 2374px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); max-width: 800px;">
+                            Loading…
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <div class="mb-4">
+                    <i class="fas fa-check-circle text-success" style="font-size: 4rem;"></i>
+                </div>
+                <h4 class="modal-title mb-3" id="successModalLabel">Thank You!</h4>
+                <p class="text-muted mb-4">Your enrollment form has been submitted successfully. We will contact you soon.</p>
+                <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.btn-primary {
+    padding: 0.75rem 2rem;
+    font-weight: 500;
+}
+
+.alert {
+    border-radius: 10px;
+}
+
+.google-form-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    padding: 1rem 1rem 0;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.btn-close {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+/* Loading animation for iframe */
+.google-form-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+.google-form-container.loaded::before {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.google-form-container::after {
+    content: 'Loading form...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #666;
+    font-size: 1.1rem;
+}
+</style>
+
+<script>
+// Handle form loading
+function handleFormLoad() {
+    const container = document.querySelector('.google-form-container');
+    container.classList.add('loaded');
+    
+    // Listen for messages from the iframe
+    window.addEventListener('message', function(event) {
+        // Check if the message is from Google Forms
+        if (event.origin === 'https://docs.google.com') {
+            try {
+                const data = JSON.parse(event.data);
+                // Check if the form was submitted
+                if (data && data.type === 'submit') {
+                    // Show success modal
+                    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    successModal.show();
+                }
+            } catch (e) {
+                console.log('Not a JSON message from Google Forms');
+            }
+        }
+    });
+}
+
+// Demo form validation and submission
+(function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            console.log('Form submission started for:', form.action);
+
+            // Reset any previous error states
+            form.classList.remove('was-validated');
+            var errorAlerts = form.querySelectorAll('.alert-danger');
+            errorAlerts.forEach(function(alert) {
+                alert.remove();
+            });
+
+            // Basic HTML5 validation
+            if (!form.checkValidity()) {
+                console.log('Form validation failed - HTML5 validation');
+                form.classList.add('was-validated');
+                return;
+            }
+
+            // Show loading state on submit button
+            var submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                var originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Submitting...';
+                submitBtn.disabled = true;
+
+                // Submit form data
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Show success modal
+                        var successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                        successModal.show();
+                        
+                        // Reset form
+                        form.reset();
+                        form.classList.remove('was-validated');
+                    } else {
+                        // Show error message
+                        var errorDiv = document.createElement('div');
+                        errorDiv.className = 'alert alert-danger mt-3';
+                        errorDiv.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i>' + data.message;
+                        form.insertBefore(errorDiv, submitBtn);
+                    }
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Show error message
+                    var errorDiv = document.createElement('div');
+                    errorDiv.className = 'alert alert-danger mt-3';
+                    errorDiv.innerHTML = '<i class="fas fa-exclamation-circle me-2"></i>An error occurred while submitting the form. Please try again.';
+                    form.insertBefore(errorDiv, submitBtn);
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
+            }
+        }, false);
+    });
+})();
+
+// Phone number formatting for demo form
+document.querySelectorAll('input[type="tel"]').forEach(function(input) {
+    input.addEventListener('input', function(e) {
+        let x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,4})(\d{0,4})/);
+        e.target.value = !x[2] ? x[1] : x[1] + '-' + x[2] + (x[3] ? '-' + x[3] : '');
+    });
+});
+</script>
+{% endblock %} 

@@ -1,0 +1,808 @@
+/* General Styles */
+:root {
+    --primary-color: #0056b3; /* Deeper Blue */
+    --secondary-color: #5a6268; /* Slightly darker grey */
+    --accent-color: #009933; /* Richer Green */
+    --text-color: #333; /* Darker text for readability */
+    --light-bg: #f8f9fa; /* Very light grey */
+    --dark-bg: #212529; /* Dark charcoal */
+    --border-color: #dee2e6; /* Standard border color */
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.4s; /* Slightly slower transition */
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Modern sans-serif font */
+    line-height: 1.7; /* Improved readability */
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    padding-top: 80px; /* Adjusting for potentially taller navbar */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; /* Elegant serif for headings */
+    color: var(--dark-bg);
+    font-weight: 700;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+.container {
+    max-width: 1200px; /* Standardizing container width */
+}
+
+.section-padding {
+    padding: 80px 0; /* Consistent section padding */
+}
+
+/* Navigation */
+.navbar {
+    background-color: rgba(var(--dark-bg-rgb), 0.95); /* Use dark-bg with transparency */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    padding: 0.8rem 0; /* Slightly adjusted padding */
+    transition: background-color var(--transition-speed);
+}
+
+.navbar-brand img {
+    transition: transform var(--transition-speed), opacity var(--transition-speed);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    background: transparent;
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: all 0.3s ease;
+    position: relative;
+    color: rgba(255, 255, 255, 0.8) !important; /* Lighter color for dark navbar */
+}
+
+.nav-link:hover {
+     color: white !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-link.active {
+    color: white !important;
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    width: 100%;
+    background-color: var(--primary-color);
+}
+
+.navbar .btn-light {
+    background-color: white;
+    color: var(--primary-color);
+    border: 1px solid white;
+    padding: 0.4rem 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-light:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 8rem 0; /* More vertical space */
+    background: linear-gradient(135deg, var(--light-bg) 0%, #ced4da 100%); /* Softer gradient */
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230056b3' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* Pattern with new primary color */
+    opacity: 0.4;
+}
+
+.hero-section h1 {
+    color: var(--dark-bg);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.hero-section .lead {
+    font-size: 1.35rem; /* Slightly larger lead text */
+    color: var(--text-color);
+    margin-bottom: 2.5rem;
+}
+
+.hero-section .btn {
+    padding: 0.9rem 2.5rem; /* Larger buttons */
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all var(--transition-speed) ease;
+}
+
+.hero-section .btn-primary {
+    background: var(--primary-color);
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 86, 179, 0.3); /* Enhanced shadow */
+}
+
+.hero-section .btn-primary:hover {
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.4); /* Deeper shadow */
+}
+
+.hero-section .btn-outline-dark {
+    border-width: 2px;
+    border-color: var(--dark-bg);
+    color: var(--dark-bg);
+    border-radius: 50px;
+}
+
+.hero-section .btn-outline-dark:hover {
+    background: var(--dark-bg);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.hero-section img {
+    box-shadow: 0 10px 20px var(--shadow-color); /* Shadow for the image */
+    border-radius: 10px; /* Rounded corners for image */
+}
+
+.hover-zoom {
+    transition: transform var(--transition-speed);
+}
+
+.hover-zoom:hover {
+    transform: scale(1.03); /* Slightly more zoom */
+}
+
+/* Features Section */
+.features-section {
+    @extend .section-padding; /* Use consistent padding class */
+    background: white; /* White background for contrast */
+    position: relative;
+}
+
+.features-section h2 {
+    font-weight: 700;
+    color: var(--dark-bg);
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.features-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px; /* Slightly wider underline */
+    height: 5px; /* Thicker underline */
+    background: var(--primary-color);
+    border-radius: 3px;
+}
+
+.features-section .card {
+    border: none;
+    border-radius: 15px;
+    transition: all var(--transition-speed) ease; /* Use consistent transition */
+    background: var(--light-bg); /* Light background for cards */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle card shadow */
+}
+
+.features-section .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow on hover */
+}
+
+.features-section .card-body {
+    padding: 2.5rem; /* More padding in card body */
+}
+
+.features-section .text-primary {
+    color: var(--primary-color) !important;
+}
+
+.features-section i {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); /* Gradient for icons */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    font-size: 3.5rem; /* Slightly larger icons */
+}
+
+/* Call to Action Section */
+.cta-section {
+    @extend .section-padding; /* Use consistent padding class */
+    background: linear-gradient(135deg, var(--primary-color) 0%, #003366 100%); /* Darker gradient */
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); /* Pattern with new primary color */
+    opacity: 0.15;
+}
+
+.cta-section h2 {
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    position: relative;
+    color: white; /* Ensure heading is white */
+}
+
+.cta-section .lead {
+    font-size: 1.25rem;
+    opacity: 0.95; /* Slightly less transparent */
+    margin-bottom: 2rem;
+}
+
+.cta-section .btn-light {
+    background: white;
+    color: var(--primary-color);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: all var(--transition-speed) ease;
+}
+
+.cta-section .btn-light:hover {
+    background: #f1f1f1; /* Slightly darker white */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+
+.cta-section .btn-outline-light {
+    border: 2px solid white;
+    color: white;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all var(--transition-speed) ease;
+}
+
+.cta-section .btn-outline-light:hover {
+    background: white;
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg); /* Use dark-bg */
+    color: #adb5bd; /* Lighter grey text */
+    padding: 4rem 0 2rem;
+    position: relative;
+}
+
+footer h5 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: white; /* White headings */
+}
+
+footer p {
+    color: #9ca3af; /* Slightly darker grey for paragraphs */
+}
+
+footer a {
+    color: #adb5bd; /* Lighter grey for links */
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+footer a:hover {
+    color: var(--primary-color); /* Primary color on hover */
+}
+
+.social-links a {
+    color: #adb5bd; /* Lighter grey for social links */
+    transition: color var(--transition-speed), transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: white; /* White on hover */
+    transform: translateY(-3px);
+}
+
+footer hr {
+    border-color: #495057; /* Darker border for separator */
+}
+
+/* New Styles for Premium Look */
+
+.shadow-sm-hover {
+    transition: all var(--transition-speed) ease;
+}
+
+.shadow-sm-hover:hover {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+
+.shadow-md {
+    box-shadow: 0 .25rem .5rem rgba(0,0,0,.1)!important;
+}
+
+.shadow-lg {
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+
+/* Adjustments for the courses section on index.html */
+.courses-section .course-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-speed) ease;
+    background: white;
+}
+
+.courses-section .course-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.courses-section .course-card .card-body {
+    padding: 2rem;
+}
+
+.courses-section .course-card h3 {
+    color: var(--dark-bg);
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+.courses-section .course-card .course-icon i {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.courses-section .course-card .course-features i {
+    color: var(--primary-color);
+}
+
+/* Program Card Styles for courses.html */
+.program-card {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-speed) ease;
+    background: white;
+}
+
+.program-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+}
+
+.program-card .program-header {
+    padding: 1.5rem;
+    font-weight: 600;
+}
+
+.program-card .program-header h3 {
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Use sans-serif for header title */
+    font-weight: 600;
+}
+
+.program-card .program-header i {
+    color: white;
+    font-size: 2.5rem;
+}
+
+.program-card .program-header.beginner {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.program-card .program-header.intermediate {
+     background: linear-gradient(135deg, #ffc107, #d39e00);
+}
+
+.program-card .program-header.advanced {
+     background: linear-gradient(135deg, #dc3545, #c82333);
+}
+
+.program-card .program-header.robotics {
+     background: linear-gradient(135deg, #6610f2, #5214ac);
+}
+
+.program-card .program-header.ml {
+     background: linear-gradient(135deg, #17a2b8, #117a8b);
+}
+
+.program-card .badge {
+    font-size: 0.85em;
+    font-weight: 700;
+    padding: 0.3em 0.7em;
+    border-radius: .25rem;
+}
+
+.program-card .text-beginner { color: #007bff !important; }
+.program-card .text-intermediate { color: #ffc107 !important; }
+.program-card .text-advanced { color: #dc3545 !important; }
+.program-card .text-robotics { color: #6610f2 !important; }
+.program-card .text-ml { color: #17a2b8 !important; }
+
+.program-card .card-body {
+    padding: 2rem;
+}
+
+.program-card .program-features i {
+    color: var(--primary-color);
+}
+
+.program-card .card-footer {
+    background-color: transparent;
+}
+
+.program-card .btn-outline-primary {
+    border-width: 2px;
+    font-weight: 600;
+    transition: all var(--transition-speed) ease;
+}
+
+.program-card .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Course Detail Page Styles */
+.course-detail-header {
+    @extend .section-padding;
+    background: linear-gradient(135deg, var(--light-bg) 0%, #ced4da 100%);
+}
+
+.course-detail-header h1 {
+    color: var(--dark-bg);
+    font-weight: 800;
+}
+
+.course-detail-header .lead {
+    font-size: 1.25rem;
+    color: var(--text-color);
+}
+
+.course-detail-header .breadcrumb {
+    background-color: transparent;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.course-detail-header .breadcrumb-item a {
+    color: var(--text-color);
+}
+
+.course-detail-header .breadcrumb-item.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.course-detail-header i.fa-2x {
+     background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.course-content-sections {
+    @extend .section-padding;
+    background: white;
+}
+
+.course-content-sections h2 {
+    color: var(--dark-bg);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.course-content-sections .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.course-content-sections .card-body {
+    padding: 2rem;
+}
+
+.course-description img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-item {
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all var(--transition-speed);
+}
+
+.accordion-item:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-header button {
+    background-color: var(--light-bg);
+    color: var(--dark-bg);
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: all var(--transition-speed);
+}
+
+.accordion-header button:not(.collapsed) {
+     background-color: var(--primary-color);
+     color: white;
+}
+
+.accordion-body {
+    padding: 1.5rem;
+    background-color: white;
+    border-top: 1px solid var(--border-color);
+}
+
+.accordion-body ul {
+    list-style: none;
+    padding: 0;
+}
+
+.accordion-body li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.accordion-body li i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    margin-top: 4px; /* Align icon better with text */
+}
+
+.sticky-sidebar {
+    position: sticky;
+    top: 100px; /* Adjust sticky position below navbar */
+}
+
+.sticky-sidebar .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+}
+
+.sticky-sidebar .card-body {
+    padding: 2rem;
+}
+
+.sticky-sidebar h3 {
+    color: var(--dark-bg);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.sticky-sidebar .btn-primary, .sticky-sidebar .btn-outline-primary {
+    padding: 0.8rem 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all var(--transition-speed) ease;
+}
+
+.sticky-sidebar .btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+}
+
+.sticky-sidebar .btn-primary:hover {
+    background-color: #004085; /* Darker shade on hover */
+}
+
+.sticky-sidebar .btn-outline-primary {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.sticky-sidebar .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.sticky-sidebar .program-highlights i {
+    color: var(--primary-color);
+}
+
+.related-courses-section {
+    @extend .section-padding;
+    background: var(--light-bg);
+}
+
+.related-courses-section h2 {
+    color: var(--dark-bg);
+    font-weight: 700;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.related-courses-section .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    transition: all var(--transition-speed);
+}
+
+.related-courses-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.related-courses-section .card-body {
+    padding: 1.5rem;
+}
+
+.related-courses-section h3 {
+    color: var(--dark-bg);
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.related-courses-section .card-text {
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.related-courses-section .btn-outline-primary {
+    border-width: 1px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    line-height: 45px;
+    font-size: 18px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-speed);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: #004085;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Utility Classes (add as needed) */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-light {
+    background-color: var(--light-bg) !important;
+}
+
+.bg-dark {
+    background-color: var(--dark-bg) !important;
+}
+
+.text-muted {
+    color: var(--secondary-color) !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-section, .features-section, .cta-section, footer {
+        padding: 50px 0; /* Reduced padding on smaller screens */
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section .lead {
+        font-size: 1.1rem;
+    }
+
+    .sticky-sidebar {
+        position: static; /* Disable sticky sidebar on smaller screens */
+        top: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    .hero-section {
+        text-align: center;
+    }
+
+    .hero-section .d-flex.justify-content-lg-start {
+        justify-content: center !important;
+    }
+
+    .features-section h2::after {
+        width: 50px;
+        height: 3px;
+    }
+
+     .features-section i {
+        font-size: 3rem;
+    }
+
+    .program-card .program-header h3 {
+         font-size: 1.1rem;
+     }
+} 

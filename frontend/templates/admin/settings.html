@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Settings | DotPy Academy{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-white">
+                    <h1 class="h3 mb-0">Admin Settings</h1>
+                </div>
+                <div class="card-body">
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+
+                    <form method="POST" action="{{ url_for('admin_settings') }}">
+                        <!-- Change Password Section -->
+                        <div class="mb-4">
+                            <h2 class="h4 mb-3">Change Password</h2>
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label for="current_password" class="form-label">Current Password</label>
+                                    <input type="password" class="form-control" id="current_password" name="current_password">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="new_password" class="form-label">New Password</label>
+                                    <input type="password" class="form-control" id="new_password" name="new_password">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="confirm_password" class="form-label">Confirm New Password</label>
+                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email Settings Section -->
+                        <div class="mb-4">
+                            <h2 class="h4 mb-3">Email Settings</h2>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="smtp_server" class="form-label">SMTP Server</label>
+                                    <input type="text" class="form-control" id="smtp_server" name="smtp_server" 
+                                           value="{{ os.getenv('SMTP_SERVER', 'smtp.gmail.com') }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="smtp_port" class="form-label">SMTP Port</label>
+                                    <input type="number" class="form-control" id="smtp_port" name="smtp_port" 
+                                           value="{{ os.getenv('SMTP_PORT', '587') }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email_user" class="form-label">Email Username</label>
+                                    <input type="email" class="form-control" id="email_user" name="email_user" 
+                                           value="{{ os.getenv('EMAIL_USER', 'dotpyacademy1@gmail.com') }}">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email_password" class="form-label">Email Password</label>
+                                    <input type="password" class="form-control" id="email_password" name="email_password" 
+                                           placeholder="Enter new password to update">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Admin Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+    <div class="container-fluid">
+        <span class="navbar-brand">Admin Panel</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="adminNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_dashboard') }}">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_courses') }}">
+                        <i class="fas fa-book"></i> Courses
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_gallery') }}">
+                        <i class="fas fa-images"></i> Gallery
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_content') }}">
+                        <i class="fas fa-file-alt"></i> Content
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_enrollments') }}">
+                        <i class="fas fa-users"></i> Enrollments
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('admin_settings') }}">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .navbar-dark.bg-dark {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-dark .nav-link {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-dark .nav-link i {
+        margin-right: 0.5rem;
+    }
+    .card {
+        border: none;
+        border-radius: 15px;
+    }
+    .card-header {
+        border-bottom: 1px solid rgba(0,0,0,.125);
+        border-radius: 15px 15px 0 0 !important;
+    }
+    .form-label {
+        font-weight: 500;
+        color: #2c3e50;
+    }
+    .form-control:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+</style>
+{% endblock %} 

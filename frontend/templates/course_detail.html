@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} | DotPy Academy{% endblock %}
+{% block content %}
+
+<!-- Course Detail Header -->
+<section class="course-detail-header py-5 bg-light">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ url_for('courses') }}">Programs</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ course.title }}</li>
+            </ol>
+        </nav>
+        <div class="row align-items-center g-4">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3">{{ course.title }}</h1>
+                <p class="lead text-muted mb-4">{{ course.short_description }}</p>
+                <div class="d-flex flex-wrap gap-4 mb-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-clock text-primary me-2"></i>
+                        <span>{{ course.duration }}</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-graduation-cap text-primary me-2"></i>
+                        <span>{{ course.level }}</span>
+                    </div>
+                    {% if course.category == 'python' %}
+                        {% if 'Level 1' in course.title %}
+                            <i class="fas fa-rocket fa-2x text-primary"></i>
+                        {% elif 'Level 2' in course.title %}
+                            <i class="fas fa-code-branch fa-2x text-primary"></i>
+                        {% elif 'Level 3' in course.title %}
+                            <i class="fas fa-cogs fa-2x text-primary"></i>
+                        {% endif %}
+                    {% elif course.category == 'robotics_iot' %}
+                        <i class="fas fa-robot fa-2x text-primary"></i>
+                    {% elif course.category == 'machine_learning' %}
+                        <i class="fas fa-brain fa-2x text-primary"></i>
+                    {% else %}
+                        <i class="fas fa-code fa-2x text-primary"></i>
+                    {% endif %}
+                </div>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ url_for('enroll') }}?course={{ course.title }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-user-plus me-2"></i>Enroll Now
+                    </a>
+                    <a href="{{ url_for('book_demo') }}?course={{ course.title }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-calendar-alt me-2"></i>Book a Demo
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+                {% if course.features %}
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h3 class="h5 mb-4">Program Highlights</h3>
+                        <ul class="list-unstyled mb-0">
+                            {% for feature in course.features %}
+                            <li class="mb-3 d-flex align-items-start">
+                                <i class="fas fa-check-circle text-primary mt-1 me-2"></i>
+                                <span>{{ feature }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Course Content Sections -->
+<section class="course-content-sections py-5">
+    <div class="container">
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <!-- Description -->
+                <div class="card border-0 shadow-sm mb-5">
+                    <div class="card-body p-4">
+                        <h2 class="h3 mb-4">Program Overview</h2>
+                        <div class="course-description">
+                            {{ course.description | safe }}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Syllabus -->
+                {% if course.syllabus %}
+                <div class="card border-0 shadow-sm mb-5">
+                    <div class="card-body p-4">
+                        <h2 class="h3 mb-4">Program Syllabus</h2>
+                        <div class="accordion accordion-flush" id="syllabusAccordion">
+                            {% for module in course.syllabus %}
+                            <div class="accordion-item">
+                                <h3 class="accordion-header" id="heading{{ loop.index }}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+                                        {{ module.title }}
+                                    </button>
+                                </h3>
+                                <div id="collapse{{ loop.index }}" class="accordion-collapse collapse" aria-labelledby="heading{{ loop.index }}" data-bs-parent="#syllabusAccordion">
+                                    <div class="accordion-body">
+                                        <ul class="list-unstyled mb-0">
+                                            {% for topic in module.topics %}
+                                            <li class="mb-2 d-flex align-items-start">
+                                                <i class="fas fa-check text-primary mt-1 me-2"></i>
+                                                <span>{{ topic }}</span>
+                                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <!-- Components List (for Robotics) -->
+                {% if course.components_included %}
+                <div class="card border-0 shadow-sm mb-5">
+                    <div class="card-body p-4">
+                        <h2 class="h3 mb-4">Components Included</h2>
+                        <ul class="list-unstyled row g-2">
+                            {% for component in course.components_included %}
+                            <li class="col-md-6 d-flex align-items-start">
+                                <i class="fas fa-microchip text-primary mt-1 me-2"></i>
+                                <span>{{ component }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+
+            <!-- Sidebar (Sticky) -->
+            <div class="col-lg-4">
+                <div class="sticky-sidebar" style="top: 20px;">
+                    <!-- Enrollment Card -->
+                    <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-4 text-center">Ready to Transform Your Future?</h3>
+                            <p class="text-muted text-center mb-4">Join this program and start your journey today!</p>
+                            <div class="d-grid gap-3">
+                                <a href="{{ url_for('enroll') }}?course={{ course.title }}" class="btn btn-primary btn-lg">
+                                    <i class="fas fa-user-plus me-2"></i>Enroll Now
+                                </a>
+                                <a href="{{ url_for('book_demo') }}?course={{ course.title }}" class="btn btn-outline-primary">
+                                    <i class="fas fa-calendar-alt me-2"></i>Book a Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% if course.features %}
+                    <!-- Program Highlights (Sticky Sidebar) -->
+                     <div class="card border-0 shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-4">Program Highlights</h3>
+                            <ul class="list-unstyled mb-0">
+                                {% for feature in course.features %}
+                                <li class="mb-3 d-flex align-items-start">
+                                    <i class="fas fa-check-circle text-primary mt-1 me-2"></i>
+                                    <span>{{ feature }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Need Help Card -->
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-4">Have Questions?</h3>
+                            <p class="text-muted mb-4">Our team is here to help you choose the right program.</p>
+                            <div class="d-grid">
+                                <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">
+                                    <i class="fas fa-envelope me-2"></i>Contact Us
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Related Courses Section -->
+<section class="related-courses py-5 bg-light">
+    <div class="container">
+        <h2 class="display-5 fw-bold mb-5 text-center">You May Also Like</h2>
+        <div class="row g-4">
+            {% for related_course in courses if related_course._id != course._id and related_course.category == course.category %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm hover-lift">
+                    <div class="card-body">
+                        <h3 class="h5 mb-3">{{ related_course.title }}</h3>
+                        <p class="card-text mb-4">{{ related_course.short_description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-graduation-cap text-primary me-2"></i>
+                                <span>{{ course.level }}</span>
+                            </div>
+                            <a href="{{ url_for('course_detail', course_id=related_course._id) }}" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section py-5 bg-primary text-white">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="mb-4">Ready to Start Your Learning Journey?</h2>
+                <p class="lead mb-4">Join DotPy Academy today and take the first step towards mastering Python programming.</p>
+                <div class="d-flex gap-3 justify-content-center">
+                    <a href="{{ url_for('enroll') }}?course={{ course.title }}" class="btn btn-light btn-lg">
+                        <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-phone me-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

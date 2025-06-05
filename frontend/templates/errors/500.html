@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error - DotPy Academy{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 text-center">
+            <h1 class="display-1 text-danger">500</h1>
+            <h2 class="mb-4">Internal Server Error</h2>
+            <p class="lead mb-4">Oops! Something went wrong on our end. We're working to fix it.</p>
+            <p class="mb-4">Please try again later or contact us if the problem persists.</p>
+            <a href="{{ url_for('home') }}" class="btn btn-primary">Return to Home</a>
+            <a href="{{ url_for('contact') }}" class="btn btn-outline-primary ms-2">Contact Us</a>
+        </div>
+    </div>
+</div>
+{% endblock %} 

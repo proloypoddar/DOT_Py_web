@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% block title %}{{ course.title }} | DotPy Academy{% endblock %}
+{% block content %}
+<!-- Course Hero Section -->
+<section class="course-hero py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <div class="d-flex align-items-center mb-4">
+                    <div class="course-icon me-3">
+                        {% if 'Level 1' in course.title %}
+                            <i class="fas fa-rocket fa-3x text-primary"></i>
+                        {% elif 'Level 2' in course.title %}
+                            <i class="fas fa-code-branch fa-3x text-primary"></i>
+                        {% elif 'Level 3' in course.title %}
+                            <i class="fas fa-cogs fa-3x text-primary"></i>
+                        {% elif 'Robotics' in course.title %}
+                            <i class="fas fa-robot fa-3x text-primary"></i>
+                        {% elif 'ML' in course.title %}
+                            <i class="fas fa-brain fa-3x text-primary"></i>
+                        {% else %}
+                            <i class="fas fa-code fa-3x text-primary"></i>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <h1 class="display-5 fw-bold mb-2">{{ course.title }}</h1>
+                        <div class="d-flex align-items-center">
+                            <span class="badge bg-primary me-2">
+                                {% if 'Level 1' in course.title %}
+                                    Beginner
+                                {% elif 'Level 2' in course.title %}
+                                    Intermediate
+                                {% elif 'Level 3' in course.title %}
+                                    Advanced
+                                {% else %}
+                                    Specialized
+                                {% endif %}
+                            </span>
+                            <span class="text-muted">
+                                <i class="fas fa-clock me-1"></i>10 Weeks
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <p class="lead mb-4">{{ course.description }}</p>
+                <div class="d-flex gap-3">
+                    <a href="{{ url_for('enroll') }}?course={{ course.title }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                    </a>
+                    <a href="{{ url_for('enroll') }}#demo" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-calendar-check me-2"></i>Book Demo
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-4">Course Highlights</h3>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <strong>10 Weeks</strong> of comprehensive training
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <strong>Weekend Quizzes</strong> for assessment
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <strong>Hands-on Projects</strong> for practical experience
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <strong>Expert Instructors</strong> for guidance
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <strong>Certificate</strong> upon completion
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Course Syllabus Section -->
+<section class="course-syllabus py-5">
+    <div class="container">
+        <h2 class="text-center display-5 fw-bold mb-5">Course Syllabus</h2>
+        <div class="row g-4">
+            {% if course.syllabus %}
+                {% for week in course.syllabus %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 border-0 shadow-sm hover-lift">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="badge bg-primary me-2">Week {{ week.week }}</span>
+                                <h3 class="h5 mb-0">{{ week.topic }}</h3>
+                            </div>
+                            <ul class="list-unstyled mb-0">
+                                {% for subsection in week.subsections %}
+                                <li class="mb-2">
+                                    <i class="fas fa-angle-right text-primary me-2"></i>
+                                    {{ subsection }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <p class="lead text-muted">Course syllabus will be available soon.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- Enrollment Section -->
+<section id="enroll" class="enrollment-section py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-5 fw-bold mb-4">Ready to Enroll?</h2>
+                <p class="lead mb-4">Take the first step towards mastering {{ course.title }} with DotPy Academy</p>
+                <div class="d-flex gap-3 justify-content-center">
+                    <a href="{{ url_for('enroll') }}?course={{ course.title }}" class="btn btn-primary btn-lg px-5">
+                        <i class="fas fa-graduation-cap me-2"></i>Enroll Now
+                    </a>
+                    <a href="{{ url_for('enroll') }}#demo" class="btn btn-outline-primary btn-lg px-5">
+                        <i class="fas fa-calendar-check me-2"></i>Book Demo Class
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Demo Class Section -->
+<section id="demo" class="demo-section py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="display-5 fw-bold mb-4">Want to Try Before You Enroll?</h2>
+                <p class="lead mb-4">Experience our teaching methodology with a free demo class</p>
+                <a href="{{ url_for('enroll') }}#demo" class="btn btn-primary btn-lg px-5">
+                    <i class="fas fa-calendar-check me-2"></i>Book a Demo Class
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

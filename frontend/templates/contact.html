@@ -1,0 +1,201 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - DotPy Academy{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="contact-hero py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold animate__animated animate__fadeIn">Get in Touch</h1>
+            <p class="lead text-muted animate__animated animate__fadeIn">We're here to help you start your journey in technology</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Information Section -->
+<section class="contact-info py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Location Card -->
+            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s">
+                <div class="card h-100 border-0 shadow-sm hover-lift">
+                    <div class="card-body text-center p-4">
+                        <div class="contact-icon mb-3">
+                            <i class="fas fa-map-marker-alt fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Our Location</h3>
+                        <p class="mb-0">
+                            <strong>DotPy Academy</strong><br>
+                            Gulshan 1<br>
+                            Dhaka, Bangladesh
+                        </p>
+                        <div class="mt-3">
+                            <a href="https://maps.google.com/?q=Gulshan+1,Dhaka,Bangladesh" target="_blank" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-directions me-2"></i>Get Directions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                <div class="card h-100 border-0 shadow-sm hover-lift">
+                    <div class="card-body text-center p-4">
+                        <div class="contact-icon mb-3">
+                            <i class="fas fa-phone-alt fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Contact Us</h3>
+                        <p class="mb-2">
+                            <a href="tel:+8801770065234" class="text-decoration-none text-dark">
+                                <i class="fas fa-phone me-2"></i>+880 1770-065234
+                            </a>
+                        </p>
+                        <p class="mb-2">
+                            <a href="https://wa.me/8801770065234" target="_blank" class="text-decoration-none text-dark">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                            </a>
+                        </p>
+                        <p class="text-muted small mt-2">
+                            <i class="far fa-clock me-1"></i>Available 9:00 AM - 8:00 PM
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Card -->
+            <div class="col-md-4 animate__animated animate__fadeInUp" style="animation-delay: 0.6s">
+                <div class="card h-100 border-0 shadow-sm hover-lift">
+                    <div class="card-body text-center p-4">
+                        <div class="contact-icon mb-3">
+                            <i class="fas fa-envelope fa-3x text-primary"></i>
+                        </div>
+                        <h3 class="h5 mb-3">Email Us</h3>
+                        <p class="mb-2">
+                            <a href="mailto:dotpyacademy1@gmail.com" class="text-decoration-none text-dark">
+                                <i class="fas fa-envelope me-2"></i>dotpyacademy1@gmail.com
+                            </a>
+                        </p>
+                        <p class="mb-2">
+                            <a href="https://www.linkedin.com/in/iam-proloy/" target="_blank" class="text-decoration-none text-dark">
+                                <i class="fab fa-linkedin me-2"></i>LinkedIn Profile
+                            </a>
+                        </p>
+                        <p class="text-muted small mt-2">
+                            <i class="fas fa-reply me-1"></i>We'll respond within 24 hours
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4 p-md-5">
+                        <h2 class="text-center mb-4">Send Us a Message</h2>
+                        <form id="contactForm" method="POST" action="{{ url_for('contact') }}">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                                        <label for="name">Your Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                                        <label for="email">Your Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Your Phone">
+                                        <label for="phone">Your Phone (Optional)</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <select class="form-select" id="subject" name="subject" required>
+                                            <option value="">Select a subject</option>
+                                            <option value="Course Inquiry">Course Inquiry</option>
+                                            <option value="Admission">Admission</option>
+                                            <option value="Partnership">Partnership</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <label for="subject">Subject</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating mb-3">
+                                        <textarea class="form-control" id="message" name="message" style="height: 150px" placeholder="Your Message" required></textarea>
+                                        <label for="message">Your Message</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button type="submit" class="btn btn-primary btn-lg">
+                                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Media Section -->
+<section class="social-media py-5">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="mb-4">Connect With Us</h2>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="https://www.linkedin.com/in/iam-proloy/" target="_blank" class="btn btn-outline-primary btn-lg">
+                    <i class="fab fa-linkedin me-2"></i>LinkedIn Profile
+                </a>
+                <a href="https://www.linkedin.com/company/dotpy-academy/" target="_blank" class="btn btn-outline-primary btn-lg">
+                    <i class="fab fa-linkedin me-2"></i>Company Page
+                </a>
+                <a href="mailto:dotpyacademy1@gmail.com" class="btn btn-outline-danger btn-lg">
+                    <i class="fas fa-envelope me-2"></i>Email Us
+                </a>
+                <a href="https://wa.me/8801770065234" target="_blank" class="btn btn-outline-success btn-lg">
+                    <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                </a>
+                <a href="https://maps.google.com/?q=Gulshan+1,Dhaka,Bangladesh" target="_blank" class="btn btn-outline-info btn-lg">
+                    <i class="fas fa-map-marker-alt me-2"></i>Get Directions
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section py-5 bg-light">
+    <div class="container">
+        <div class="ratio ratio-21x9 rounded shadow-sm">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9024424301397!2d90.4170863!3d23.7791903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c74c29c8c0a1%3A0x1c9a359e2a4f618c!2sGulshan%201%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1650000000000!5m2!1sen!2sbd" 
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Add your form submission logic here
+    alert('Thank you for your message! We will get back to you soon.');
+    this.reset();
+});
+</script>
+{% endblock %} 
